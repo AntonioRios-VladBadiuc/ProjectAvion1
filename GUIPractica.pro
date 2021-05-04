@@ -6,7 +6,7 @@
 #-------------------------------------------------
 
 QT       += core gui serialport widgets
-CONFIG   += qwt analogwidgets qmqtt ColorWidgets
+CONFIG   += qwt analogwidgets qmqtt ColorWidgets embeddeduma
 
 TARGET = GUIPanel
 TEMPLATE = app

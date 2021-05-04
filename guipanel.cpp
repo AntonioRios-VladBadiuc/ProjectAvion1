@@ -107,6 +107,28 @@ void GUIPanel::readRequest()
                         // Crea una ventana popup con el texto indicado
                         pingResponseReceived();
                         break;
+                    case MENSAJE_VALORES:
+                    {
+                        PARAM_MENSAJE_VALORES muestras;
+                        if (check_and_extract_message_param(ptrtoparam, tam, sizeof(muestras),&muestras)>0)
+                        {
+                            ui->myPITCH->setPitch(float(muestras.valor1)/100 - 20);
+                            ui->myPITCH->update();
+
+                            ui->myYAW->setHeading(float(muestras.valor2)/130 - 16);
+                            ui->myYAW->update();
+
+                            ui->MYROLL->setTurnRate(float(muestras.valor3)/200.0 -10);
+                            ui->MYROLL->update();
+
+                        }
+                        else
+                        {
+                            // TRATAMIENTO DE ERRORES
+                        }
+
+                    }
+                        break;
 
                     case MENSAJE_NO_IMPLEMENTADO:
                     {
